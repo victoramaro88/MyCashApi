@@ -1,0 +1,65 @@
+﻿<div>
+    <h1>MyCash Api</h1>
+    <h3>Serviços</h3>
+    <br />
+    <table>
+        <thead>
+            <tr>
+                <td style="border:double; text-align:center;">
+                    <h4><strong>Gets</strong></h4>
+                </td>
+                <td style="border:double; text-align:center;">
+                    <h4><strong>Posts</strong></h4>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="border:double; padding:10px;">
+                    @* GETS *@
+                    <a href="~/Api/Pessoa/ListarPessoas">Listar Pessoas</a><br />
+                    <a href="~/Api/Usuario/ListarUsuarios">Listar Usuários</a><br />
+                    <a href="~/Api/Endereco/ListarEnderecoByIdUsuario/">Listar Endereço por Usuário (Necessário um id)</a><br />
+                    <a href="~/Api/Enumeradores/ListarEnumeradores">Listar Enumeradores</a><br />
+                    <a href="~/Api/InstituicaoFinanceira/ListarInstitFinanceiras">Listar Instituições Financeiras</a><br />
+                    <a href="~/Api/InstFinancUsuario/ListarInstitFinancUsuario">Listar Instituições Financeiras de Usuários</a><br />
+                    <a href="~/Api/BandeiraCartao/ListarBandeiraCartao">Listar Bandeira Cartao</a><br />
+                    <a href="~/Api/Cartao/ListarCartoesByIdUsuario">Listar Cartoes By Id Usuario</a><br />
+                    <a href="~/Api/Investimento/ListarInstitFinancByIdUsuario">ListarInstitFinancByIdUsuario</a><br />
+                    <a href="~/Api/TipoDespesa/ListarTipoDespesa">ListarTipoDespesa</a><br />
+                    <a href="~/Api/TipoTransacao/ListarTipoTransacao">ListarTipoTransacao</a><br />
+                    <a href="~/Api/TransacoesFixas/ListarTransacoesFixas">ListarTransacoesFixas</a><br />
+                    <a href="~/Api/TransacoesFixas/ListarTransacoesFixasByIdUsuario">ListarTransacoesFixasByIdUsuario</a><br />
+                    <a href="~/Api/TransCartao/ListarTransacaoCartao">ListarTransacaoCartao</a><br />
+                    <a href="~/Api/TransCartao/ListarTransacaoCartaoByIdUsuario">ListarTransacaoCartaoByIdUsuario</a><br />
+                    <a href="~/Api/TransInstFinanc/ListarTransacaoInstFinanceira">ListarTransacaoInstFinanceira</a><br />
+                    <a href="~/Api/TransInstFinanc/ListarTransacaoInstFinanceiraByIdUsuario">ListarTransacaoInstFinanceiraByIdUsuario</a><br />
+                    <a href="~/Api/TransInvest/ListarTransacaoInvestimento">ListarTransacaoInvestimento</a><br />
+                    <a href="~/Api/TransInstFinanc/ListarTransacaoInvestimentoByIdUsuario">ListarTransacaoInvestimentoByIdUsuario</a><br />
+                    <a href="~/Api/TransCartao/RetornaSaldoCartoesByIdUsuario">RetornaSaldoCartoesByIdUsuario</a><br />
+                </td>
+                <td style="border:double; padding:10px;">
+                    @* POSTS *@
+                    <a href="~/Api/Usuario/AutenticarUsuario">AutenticarUsuario</a><br />
+                    <a href="~/Api/Usuario/ManterUsuario">ManterUsuario</a><br />
+                    <a href="~/Api/Usuario/AlterarDadosUsuario">Alterar Dados do Usuario</a><br />
+                    <a href="~/Api/Enumeradores/ManterEnumeradores">Manter Enumeradores</a><br />
+                    <a href="~/Api/InstituicaoFinanceira/ManterInstitFinanc">Manter Instituições Financeiras</a><br />
+                    <a href="~/Api/InstFinancUsuario/ManterInstitFinancUsuario">Manter Instituições Financeiras de Usuários</a><br />
+                    <a href="~/Api/BandeiraCartao/ManterBandeiraCartao">Manter Bandeira Cartao</a><br />
+                    <a href="~/Api/Cartao/ManterCartaoUsuario">Manter Cartao Usuario</a><br />
+                    <a href="~/Api/Investimento/ManterInvestimentoUsuario">ManterInvestimentoUsuario</a><br />
+                    <a href="~/Api/TipoDespesa/ManterTipoDespesa">ManterTipoDespesa</a><br />
+                    <a href="~/Api/TransacoesFixas/ManterTransacoesFixas">ManterTransacoesFixas</a><br />
+                    <a href="~/Api/TransCartao/ManterTransacaoCartao">ManterTransacaoCartao</a><br />
+                    <a href="~/Api/TransInstFinanc/ManterTransacaoInstFinanceira">ManterTransacaoInstFinanceira</a><br />
+                    <a href="~/Api/TransInvest/ManterTransacaoInvestimento">ManterTransacaoInvestimento</a><br />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <p><strong>Obs-1.: Para os posts é necessário corpo em formato JSON</strong></p>
+    <p><strong>Obs-2.: Para os gets gerais é opcional inserir um id</strong></p>
+    <p><strong>Última Atualização: </strong>09/05/2020</p>
+</div>
