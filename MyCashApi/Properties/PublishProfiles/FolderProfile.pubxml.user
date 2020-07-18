@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Users\Victor Amaro\Desktop\Publish</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Publish</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Areas/HelpPage/HelpPage.css">
@@ -109,10 +109,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/25/2012 11:48:56</publishTime>
     </File>
     <File Include="bin/MyCashApi.dll">
-      <publishTime>07/18/2020 16:58:06</publishTime>
+      <publishTime>07/18/2020 17:20:23</publishTime>
     </File>
     <File Include="bin/MyCashApi.pdb">
-      <publishTime>07/18/2020 16:58:06</publishTime>
+      <publishTime>07/18/2020 17:20:23</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>02/18/2018 09:44:54</publishTime>
@@ -400,7 +400,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/02/2020 07:22:31</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>05/09/2020 17:19:40</publishTime>
+      <publishTime>07/18/2020 17:18:45</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>04/02/2020 07:22:23</publishTime>
