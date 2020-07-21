@@ -14,10 +14,29 @@ namespace MyCashApi.Controllers
         InstFinancUsuarioRepository _instFiUsuRepo = new InstFinancUsuarioRepository();
 
         [HttpGet]
+        [Authorize]
         [Route("api/InstFinancUsuario/ListarInstitFinancUsuario/{codInstFinUsu:int?}")]
         public List<InstFinancUsuarioModel> ListarInstitFinancUsuario(int codInstFinUsu = 0)
         {
             var retorno = _instFiUsuRepo.ListarInstitFinancUsuario(codInstFinUsu);
+            return retorno;
+        }
+
+        [HttpGet]
+        [Authorize]
+        [Route("api/InstFinancUsuario/ListarInsFinUsrByIdUsr/{codigoUsuario:int?}")]
+        public List<InstFinUsrCompletaModel> ListarInsFinUsrByIdUsr(int codigoUsuario = 0)
+        {
+            var retorno = _instFiUsuRepo.ListarInsFinUsrByIdUsr(codigoUsuario);
+            return retorno;
+        }
+
+        [HttpGet]
+        [Authorize]
+        [Route("api/InstFinancUsuario/AlteraStatusInstFinUsr/{codigoInstFinUsr:int}/{statusNovo:bool}")]
+        public string AlteraStatusInstFinUsr(int codigoInstFinUsr, bool statusNovo)
+        {
+            var retorno = _instFiUsuRepo.AlteraStatusInstFinUsr(codigoInstFinUsr, statusNovo);
             return retorno;
         }
 

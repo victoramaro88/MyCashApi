@@ -104,3 +104,4 @@ C:\Projetos\MyCashApi\MyCashApi\obj\Debug\MyCashApi.csproj.CoreCompileInputs.cac
 C:\Projetos\MyCashApi\MyCashApi\obj\Debug\MyCashApi.csproj.CopyComplete
 C:\Projetos\MyCashApi\MyCashApi\obj\Debug\MyCashApi.dll
 C:\Projetos\MyCashApi\MyCashApi\obj\Debug\MyCashApi.pdb
+C:\Projetos\MyCashApi\MyCashApi\obj\Debug\MyCashApi.csprojAssemblyReference.cache

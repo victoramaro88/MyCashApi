@@ -162,6 +162,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\TipoTransacaoController.cs" />
     <Compile Include="Models\DadosUsuEmailModel.cs" />
+    <Compile Include="Models\InstFinUsrCompletaModel.cs" />
     <Compile Include="Models\ParcelasTransCartaoModel.cs" />
     <Compile Include="Models\SaldoCartoesModel.cs" />
     <Compile Include="Models\TipoTransacaoModel.cs" />
