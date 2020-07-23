@@ -14,6 +14,7 @@ namespace MyCashApi.Controllers
         InstituicaoFinanceiraRepository _instFinRepo = new InstituicaoFinanceiraRepository();
 
         [HttpGet]
+        [Authorize]
         [Route("api/InstituicaoFinanceira/ListarInstitFinanceiras/{idInstFin:int?}")]
         public List<InstituicaoFinanceiraModel> ListarInstitFinanceiras(int idInstFin = 0)
         {
@@ -22,6 +23,7 @@ namespace MyCashApi.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public HttpResponseMessage ManterInstitFinanc(InstituicaoFinanceiraModel instituicaoFinanceiraModel)
         {
             string retorno = "";

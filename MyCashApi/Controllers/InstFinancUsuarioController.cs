@@ -41,6 +41,7 @@ namespace MyCashApi.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public HttpResponseMessage ManterInstitFinancUsuario(InstFinancUsuarioModel instFinancUsuarioModel)
         {
             string retorno = "";
