@@ -109,10 +109,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/25/2012 11:48:56</publishTime>
     </File>
     <File Include="bin/MyCashApi.dll">
-      <publishTime>07/23/2020 18:49:24</publishTime>
+      <publishTime>07/25/2020 18:46:35</publishTime>
     </File>
     <File Include="bin/MyCashApi.pdb">
-      <publishTime>07/23/2020 18:49:24</publishTime>
+      <publishTime>07/25/2020 18:46:35</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>02/18/2018 09:44:54</publishTime>

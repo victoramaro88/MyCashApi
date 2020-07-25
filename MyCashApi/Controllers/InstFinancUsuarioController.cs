@@ -42,7 +42,7 @@ namespace MyCashApi.Controllers
 
         [HttpPost]
         [Authorize]
-        public HttpResponseMessage ManterInstitFinancUsuario(InstFinancUsuarioModel instFinancUsuarioModel)
+        public string ManterInstitFinancUsuario(InstFinancUsuarioModel instFinancUsuarioModel)
         {
             string retorno = "";
             var response = new HttpResponseMessage();
@@ -51,24 +51,12 @@ namespace MyCashApi.Controllers
             {
                 retorno = _instFiUsuRepo.ManterInstitFinancUsuario(instFinancUsuarioModel);
 
-                if (retorno == "OK")
-                {
-                    response = new HttpResponseMessage(HttpStatusCode.OK);
-                    response.Content = new StringContent("OK");
-                }
-                else
-                {
-                    response = new HttpResponseMessage(HttpStatusCode.BadRequest);
-                    response.Content = new StringContent(retorno);
-                }
+                return retorno;
             }
             else
             {
-                response = new HttpResponseMessage(HttpStatusCode.BadRequest);
-                response.Content = new StringContent("Campos obrigatórios inválidos");
+                return "Campos obrigatórios inválidos";
             }
-
-            return response;
         }
     }
 }

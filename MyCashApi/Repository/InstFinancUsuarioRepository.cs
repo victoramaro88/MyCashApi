@@ -83,12 +83,14 @@ namespace MyCashApi.Repository
 	                        ,InstFin.ifImg
 	                        ,InstFin.ifFlAt
                         FROM [mycash].[dbo].[InstFinUsuario] AS IFU
-                        INNER JOIN [mycash].[dbo].[InstituicaoFinanceira] AS InstFin ON InstFin.ifCod = IFU.ifCodi";
+                        INNER JOIN [mycash].[dbo].[InstituicaoFinanceira] AS InstFin ON InstFin.ifCodi = IFU.ifCodi";
 
             if (codigoUsuario > 0)
             {
                 query += " WHERE usuCodi = " + codigoUsuario;
             }
+
+            query += "ORDER BY InstFin.ifDesc";
 
             using (SqlConnection con = new SqlConnection(strConn.ToString()))
             {

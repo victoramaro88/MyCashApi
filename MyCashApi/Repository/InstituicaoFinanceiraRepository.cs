@@ -24,6 +24,8 @@ namespace MyCashApi.Repository
                 query += " WHERE ifCodi = " + ifCodi;
             }
 
+            query += " ORDER BY ifDesc";
+
             using (SqlConnection con = new SqlConnection(strConn.ToString()))
             {
                 SqlCommand com = new SqlCommand(query, con);
