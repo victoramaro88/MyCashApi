@@ -22,6 +22,15 @@ namespace MyCashApi.Controllers
             return retorno;
         }
 
+        [HttpGet]
+        [Authorize]
+        [Route("api/InstituicaoFinanceira/ListarInstitFinanceirasAtivas/{idInstFin:int?}")]
+        public List<InstituicaoFinanceiraModel> ListarInstitFinanceirasAtivas(int idInstFin = 0)
+        {
+            var retorno = _instFinRepo.ListarInstitFinanceirasAtivas(idInstFin);
+            return retorno;
+        }
+
         [HttpPost]
         [Authorize]
         public HttpResponseMessage ManterInstitFinanc(InstituicaoFinanceiraModel instituicaoFinanceiraModel)
@@ -51,6 +60,15 @@ namespace MyCashApi.Controllers
             }
 
             return response;
+        }
+
+        [HttpGet]
+        [Authorize]
+        [Route("api/InstituicaoFinanceira/AlteraStatusInstFinanceira/{codigoInstFinanc:int}/{statusNovo:bool}")]
+        public string AlteraStatusInstFinanceira(int codigoInstFinanc, bool statusNovo)
+        {
+            var retorno = _instFinRepo.AlteraStatusInstFinanceira(codigoInstFinanc, statusNovo);
+            return retorno;
         }
     }
 }

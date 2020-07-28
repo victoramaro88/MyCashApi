@@ -73,6 +73,71 @@ namespace MyCashApi.Repository
             return listaInstituicaoFinanceiraModel;
         }
 
+        public List<InstituicaoFinanceiraModel> ListarInstitFinanceirasAtivas(int ifCodi)
+        {
+            SqlDataReader reader = null;
+            List<InstituicaoFinanceiraModel> listaInstituicaoFinanceiraModel = new List<InstituicaoFinanceiraModel>();
+
+            var query = @"SELECT * FROM InstituicaoFinanceira";
+
+            if (ifCodi > 0)
+            {
+                query += " WHERE ifCodi = " + ifCodi + " AND ifFlAt = 1";
+            }
+            else
+            {
+                query += " WHERE ifFlAt = 1";
+            }
+
+            query += " ORDER BY ifDesc";
+
+            using (SqlConnection con = new SqlConnection(strConn.ToString()))
+            {
+                SqlCommand com = new SqlCommand(query, con);
+                con.Open();
+                try
+                {
+                    reader = com.ExecuteReader();
+                    if (reader != null && reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            byte[] binaryString;
+                            if (reader[3].ToString().Length > 0)
+                            {
+                                binaryString = (byte[])reader[3]; //-> Convertendo string novamente em byte[].
+                            }
+                            else
+                            {
+                                binaryString = null;
+                            }
+
+                            var ret = new InstituicaoFinanceiraModel()
+                            {
+                                ifCodi = int.Parse(reader[0].ToString()),
+                                ifDesc = reader[1].ToString(),
+                                ifCod = reader[2].ToString(),
+                                ifImg = binaryString != null ? Encoding.Default.GetString(binaryString) : "",
+                                ifFlAt = Convert.ToBoolean(reader[4].ToString())
+                            };
+
+                            listaInstituicaoFinanceiraModel.Add(ret);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+
+            return listaInstituicaoFinanceiraModel;
+        }
+
         public string ManterInstitFinanc(InstituicaoFinanceiraModel instituicaoFinanceiraModel)
         {
             string resp = "";
@@ -122,6 +187,39 @@ namespace MyCashApi.Repository
                         command.ExecuteNonQuery();
                     }
                     
+                    resp = "OK";
+                }
+                catch (Exception ex)
+                {
+                    resp = "Erro ao inserir no banco de dados: " + ex.GetType() +
+                        " | Mensagem: " + ex.Message;
+                }
+            }
+
+            return resp;
+        }
+
+        public string AlteraStatusInstFinanceira(int ifCodi, bool ifFlAt)
+        {
+            string resp = "";
+
+            using (SqlConnection connection = new SqlConnection(strConn))
+            {
+                connection.Open();
+                SqlCommand command = connection.CreateCommand();
+                command.Connection = connection;
+
+                try
+                {
+                    if (ifCodi > 0)
+                    {
+                        command.CommandText =
+                            @"UPDATE [dbo].[InstituicaoFinanceira] SET 
+                                   [ifFlAt] = " + (ifFlAt ? 1 : 0) +
+                             " WHERE [ifCodi] = " + ifCodi;
+                        command.ExecuteNonQuery();
+                    }
+
                     resp = "OK";
                 }
                 catch (Exception ex)

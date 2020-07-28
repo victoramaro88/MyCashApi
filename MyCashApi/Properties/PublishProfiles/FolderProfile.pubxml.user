@@ -109,10 +109,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/25/2012 11:48:56</publishTime>
     </File>
     <File Include="bin/MyCashApi.dll">
-      <publishTime>07/25/2020 18:46:35</publishTime>
+      <publishTime>07/28/2020 18:44:16</publishTime>
     </File>
     <File Include="bin/MyCashApi.pdb">
-      <publishTime>07/25/2020 18:46:35</publishTime>
+      <publishTime>07/28/2020 18:44:16</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>02/18/2018 09:44:54</publishTime>
@@ -400,7 +400,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/02/2020 07:22:31</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>07/18/2020 17:37:02</publishTime>
+      <publishTime>07/28/2020 07:34:58</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>04/02/2020 07:22:23</publishTime>
