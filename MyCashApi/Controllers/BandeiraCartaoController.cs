@@ -14,13 +14,16 @@ namespace MyCashApi.Controllers
         BandeiraCartaoRepository _bandCartRepo = new BandeiraCartaoRepository();
 
         [HttpGet]
-        public List<BandeiraCartaoModel> ListarBandeiraCartao()
+        [Authorize]
+        [Route("api/BandeiraCartao/ListarBandeiraCartao/{id:int?}")]
+        public List<BandeiraCartaoModel> ListarBandeiraCartao(int id = 0)
         {
-            var retorno = _bandCartRepo.ListarBandeiraCartao();
+            var retorno = _bandCartRepo.ListarBandeiraCartao(id);
             return retorno;
         }
 
         [HttpPost]
+        [Authorize]
         public HttpResponseMessage ManterBandeiraCartao(BandeiraCartaoModel bandeiraCartaoModel)
         {
             string retorno = "";

@@ -12,12 +12,16 @@ namespace MyCashApi.Repository
     {
         string strConn = System.Configuration.ConfigurationManager.ConnectionStrings["ConexaoBD"].ConnectionString;
 
-        public List<BandeiraCartaoModel> ListarBandeiraCartao()
+        public List<BandeiraCartaoModel> ListarBandeiraCartao(int id)
         {
             SqlDataReader reader = null;
             List<BandeiraCartaoModel> listaBandeiraCartao = new List<BandeiraCartaoModel>();
 
             var query = @"SELECT * FROM BandeiraCartao";
+            if(id > 0)
+            {
+                query += " WHERE bcCodi = " + id;
+            }
 
             using (SqlConnection con = new SqlConnection(strConn.ToString()))
             {
