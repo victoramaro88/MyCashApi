@@ -152,7 +152,7 @@ namespace MyCashApi.Repository
                 {
                     //-> Convertendo a String do Base64 da imagem em array de bytes para salvar no BD.
                     string file = "";
-                    if (instituicaoFinanceiraModel.ifImg.Length > 0)
+                    if (instituicaoFinanceiraModel.ifImg != null && instituicaoFinanceiraModel.ifImg.Length > 0)
                     {
                         string imgb64 = (instituicaoFinanceiraModel.ifImg);
                         string ext = imgb64.Split('/')[1];

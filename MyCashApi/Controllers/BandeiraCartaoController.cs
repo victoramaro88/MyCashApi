@@ -22,35 +22,30 @@ namespace MyCashApi.Controllers
             return retorno;
         }
 
+        [HttpGet]
+        [Authorize]
+        [Route("api/BandeiraCartao/AlteraStatusBandeiraCartao/{codigoBandeiraCartao:int}/{statusNovo:bool}")]
+        public string AlteraStatusBandeiraCartao(int codigoBandeiraCartao, bool statusNovo)
+        {
+            var retorno = _bandCartRepo.AlteraStatusBandeiraCartao(codigoBandeiraCartao, statusNovo);
+            return retorno;
+        }
+
         [HttpPost]
         [Authorize]
-        public HttpResponseMessage ManterBandeiraCartao(BandeiraCartaoModel bandeiraCartaoModel)
+        public string ManterBandeiraCartao(BandeiraCartaoModel bandeiraCartaoModel)
         {
-            string retorno = "";
-            var response = new HttpResponseMessage();
 
             if (bandeiraCartaoModel != null)
             {
-                retorno = _bandCartRepo.ManterBandeiraCartao(bandeiraCartaoModel);
+                string retorno = _bandCartRepo.ManterBandeiraCartao(bandeiraCartaoModel);
 
-                if (retorno == "OK")
-                {
-                    response = new HttpResponseMessage(HttpStatusCode.OK);
-                    response.Content = new StringContent("OK");
-                }
-                else
-                {
-                    response = new HttpResponseMessage(HttpStatusCode.BadRequest);
-                    response.Content = new StringContent(retorno);
-                }
+                return retorno;
             }
             else
             {
-                response = new HttpResponseMessage(HttpStatusCode.BadRequest);
-                response.Content = new StringContent("Campos obrigatórios inválidos");
+                return "Campos obrigatórios inválidos";
             }
-
-            return response;
         }
     }
 }

@@ -69,6 +69,39 @@ namespace MyCashApi.Repository
             return listaBandeiraCartao;
         }
 
+        public string AlteraStatusBandeiraCartao(int bcCodi, bool bcFlAt)
+        {
+            string resp = "";
+
+            using (SqlConnection connection = new SqlConnection(strConn))
+            {
+                connection.Open();
+                SqlCommand command = connection.CreateCommand();
+                command.Connection = connection;
+
+                try
+                {
+                    if (bcCodi > 0)
+                    {
+                        command.CommandText =
+                            @"UPDATE [dbo].[BandeiraCartao] SET 
+                                   [bcFlAt] = " + (bcFlAt ? 1 : 0) +
+                             " WHERE [bcCodi] = " + bcCodi;
+                        command.ExecuteNonQuery();
+                    }
+
+                    resp = "OK";
+                }
+                catch (Exception ex)
+                {
+                    resp = "Erro ao inserir no banco de dados: " + ex.GetType() +
+                        " | Mensagem: " + ex.Message;
+                }
+            }
+
+            return resp;
+        }
+
         public string ManterBandeiraCartao(BandeiraCartaoModel bandeiraCartaoModel)
         {
             string resp = "";
@@ -83,7 +116,7 @@ namespace MyCashApi.Repository
                 {
                     //-> Convertendo a String do Base64 da imagem em array de bytes para salvar no BD.
                     string file = "";
-                    if (bandeiraCartaoModel.bcImg.Length > 0)
+                    if (bandeiraCartaoModel.bcImg != null && bandeiraCartaoModel.bcImg.Length > 0)
                     {
                         string imgb64 = (bandeiraCartaoModel.bcImg);
                         string ext = imgb64.Split('/')[1];

@@ -44,12 +44,9 @@ namespace MyCashApi.Controllers
         [Authorize]
         public string ManterInstitFinancUsuario(InstFinancUsuarioModel instFinancUsuarioModel)
         {
-            string retorno = "";
-            var response = new HttpResponseMessage();
-
             if (instFinancUsuarioModel != null)
             {
-                retorno = _instFiUsuRepo.ManterInstitFinancUsuario(instFinancUsuarioModel);
+                string retorno = _instFiUsuRepo.ManterInstitFinancUsuario(instFinancUsuarioModel);
 
                 return retorno;
             }
