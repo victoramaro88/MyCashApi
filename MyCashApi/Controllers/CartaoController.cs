@@ -14,14 +14,25 @@ namespace MyCashApi.Controllers
         CartaoRepository _cartaoRepo = new CartaoRepository();
 
         [HttpGet]
+        [Authorize]
         [Route("api/Cartao/ListarCartoesByIdUsuario/{idUsuario}")]
-        public List<CartaoModel> ListarCartoesByIdUsuario(int idUsuario)
+        public List<CartaoUsuarioModel> ListarCartoesByIdUsuario(int idUsuario)
         {
             var retorno = _cartaoRepo.ListarCartoesByIdUsuario(idUsuario);
             return retorno;
         }
 
+        [HttpGet]
+        [Authorize]
+        [Route("api/Cartao/AlteraStatusCartaoUsr/{codigoCartUsr:int}/{statusNovo:bool}")]
+        public string AlteraStatusCartaoUsr(int codigoCartUsr, bool statusNovo)
+        {
+            var retorno = _cartaoRepo.AlteraStatusCartaoUsr(codigoCartUsr, statusNovo);
+            return retorno;
+        }
+
         [HttpPost]
+        [Authorize]
         public HttpResponseMessage ManterCartaoUsuario(CartaoModel cartaoModel)
         {
             string retorno = "";

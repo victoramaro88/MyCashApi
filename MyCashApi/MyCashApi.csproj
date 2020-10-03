@@ -161,6 +161,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\TipoTransacaoController.cs" />
+    <Compile Include="Models\CartaoUsuarioModel.cs" />
     <Compile Include="Models\DadosUsuEmailModel.cs" />
     <Compile Include="Models\InstFinUsrCompletaModel.cs" />
     <Compile Include="Models\ParcelasTransCartaoModel.cs" />
